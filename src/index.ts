@@ -40,20 +40,20 @@ interface PixabayResponse {
 }
 
 interface PixabayOptions {
-  lang: "cs" | "da" | "de" | "en" | "es" | "fr" | "id" | "it" | "hu" | "nl" | "no" | "pl" | "pt" | "ro" | "sk" | "fi" | "sv" | "tr" | "vi" | "th" | "bg" | "ru" | "el" | "ja" | "ko" | "zh"
-  image_type: 'all' | 'photo' | 'illustration' | 'vector'
-  orientation: 'all' | 'horizontal' | 'vertical'
-  category: 'fashion' | 'nature' | 'backgrounds' | 'science' | 'education' | 'people' | 'feelings' | 'religion' | 'health' | 'places' | 'animals' | 'industry' | 'food' | 'computer' | 'sports' | 'transportation' | 'travel' | 'buildings' | 'business' | 'music'
-  min_width: number
-  min_height: number
-  colors: "grayscale" | "transparent" | "red" | "orange" | "yellow" | "green" | "turquoise" | "blue" | "lilac" | "pink" | "white" | "gray" | "black" | "brown"
-  editors_choice: boolean
-  safesearch: boolean
-  order: 'popular' | 'latests'
-  page: number
-  per_page: number
-  callback: string
-  pretty: boolean
+  lang?: "cs" | "da" | "de" | "en" | "es" | "fr" | "id" | "it" | "hu" | "nl" | "no" | "pl" | "pt" | "ro" | "sk" | "fi" | "sv" | "tr" | "vi" | "th" | "bg" | "ru" | "el" | "ja" | "ko" | "zh"
+  image_type?: 'all' | 'photo' | 'illustration' | 'vector'
+  orientation?: 'all' | 'horizontal' | 'vertical'
+  category?: 'fashion' | 'nature' | 'backgrounds' | 'science' | 'education' | 'people' | 'feelings' | 'religion' | 'health' | 'places' | 'animals' | 'industry' | 'food' | 'computer' | 'sports' | 'transportation' | 'travel' | 'buildings' | 'business' | 'music'
+  min_width?: number
+  min_height?: number
+  colors?: "grayscale" | "transparent" | "red" | "orange" | "yellow" | "green" | "turquoise" | "blue" | "lilac" | "pink" | "white" | "gray" | "black" | "brown"
+  editors_choice?: boolean
+  safesearch?: boolean
+  order?: 'popular' | 'latests'
+  page?: number
+  per_page?: number
+  callback?: string
+  pretty?: boolean
 }
 
 export class Pixabay {
@@ -61,7 +61,7 @@ export class Pixabay {
   constructor(private readonly apiKey) {
   }
 
-  async get(query: string, options: PixabayOptions): Promise<PixabayResponse> {
+  async get(query: string, options?: PixabayOptions): Promise<PixabayResponse> {
     const ops = qs.stringify({
       q: query,
       image_type: 'photo',
